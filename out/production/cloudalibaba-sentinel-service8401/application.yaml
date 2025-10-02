@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: cloudalibaba-sentinel-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+      web-context-unify: false
+      datasource:
+        ds1:
+          nacos:
+            data-id: ${spring.application.name}
+            data-type: json
+            group-id: DEFAULT_GROUP
+            rule-type: flow
+            server-addr: localhost:8848
+server:
+  port: 8401

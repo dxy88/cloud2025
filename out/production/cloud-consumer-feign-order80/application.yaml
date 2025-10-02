@@ -1,0 +1,176 @@
+server:
+  port: 8080
+spring:
+  aop:
+    auto: true
+  application:
+    name: cloud-consumer-openfeign-order
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        service-name: ${spring.application.name}
+    openfeign:
+      client:
+        config:
+          #          default:
+          #            connect-timeout: 3000
+          #            read-timeout: 3000
+          cloud-payment-service:
+            connect-timeout: 20000
+            read-timeout: 20000
+      httpclient:
+        hc5:
+          enabled: true
+      compression:
+        request:
+          min-request-size: 2048
+          mime-types: text/xml,application/xml,application/json
+          enabled: true
+        response:
+          enabled: true
+      circuitbreaker:
+        group:
+          enabled: true
+        enabled: true
+  #logging:
+  #  level:
+  #    com:
+  #      atguigu:
+  #        cloud:
+  #          apis:
+  #            PayFeignApi: debug
+  #resilience4j:
+  #  circuitbreaker:
+  #    configs:
+  #      default:
+  #        failure-rate-threshold: 50
+  #        sliding-window-type: count_based
+  #        sliding-window-size: 6
+  #        minimum-number-of-calls: 6
+  #        automatic-transition-from-open-to-half-open-enabled: true
+  #        permitted-number-of-calls-in-half-open-state: 2
+  #        wait-duration-in-open-state: 5s
+  #        record-exceptions:
+  #          - java.lang.Exception
+  #    instances:
+  #      cloud-payment-service:
+  #        base-config: default
+  #resilience4j:
+  #  circuitbreaker:
+  #    instances:
+  #      cloud-payment-service:
+  #        base-config: default
+  #    configs:
+  #      default:
+  #        failure-rate-threshold: 50
+  #        slow-call-rate-threshold: 30
+  #        slow-call-duration-threshold: 2s
+  #        sliding-window-type: time_based
+  #        sliding-window-size: 2
+  #        wait-duration-in-open-state: 5s
+  #        minimum-number-of-calls: 2
+  #        permitted-number-of-calls-in-half-open-state: 2
+  #        record-exceptions:
+  #          - java.lang.Exception
+
+
+#resilience4j:
+#  timelimiter:
+#    configs:
+#      default:
+#        timeout-duration: 20s
+#  bulkhead:
+#    instances:
+#      cloud-payment-service:
+#        base-config: default
+#    configs:
+#      default:
+#        max-concurrent-calls: 2
+#        max-wait-duration: 1s
+#
+#resilience4j:
+#  timelimiter:
+#    configs:
+#      default:
+#        timeout-duration: 20s
+#  thread-pool-bulkhead:
+#    configs:
+#      default:
+#        queue-capacity: 2
+#        max-thread-pool-size: 1
+#        core-thread-pool-size: 1
+#    instances:
+#      cloud-payment-service:
+#        base-config: default
+#resilience4j:
+#  ratelimiter:
+#    configs:
+#      default:
+#        timeout-duration: 1
+#        limit-for-period: 2
+#        limit-refresh-period: 1s
+#    instances:
+#      cloud-payment-service:
+#        base-config: default
+
+management:
+  zipkin:
+    tracing:
+      endpoint: http://localhost:9411/api/v2/spans
+  tracing:
+    sampling:
+      probability: 1.0
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

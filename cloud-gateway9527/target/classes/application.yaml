@@ -1,0 +1,47 @@
+server:
+  port: 9527
+spring:
+  application:
+    name: cloud-gateway
+  cloud:
+    consul:
+      port: 8500
+      host: localhost
+      discovery:
+        service-name: ${spring.application.name}
+        enabled: true
+        prefer-ip-address: true
+    gateway:
+      routes:
+        - id:  routeId1
+#          uri: http://localhost:8001
+          uri: lb://cloud-payment-service
+          predicates:
+            - Path=/pay/gateway/get/**
+#            - After=2025-09-30T19:00:13.025290700+08:00[Asia/Shanghai]
+#            - My=diamond
+#            - Cookie=username,dxy
+#            - Header=X-Request-Id, \d+
+#            - Host=**.atguigu.com
+#            - Query=username,\d+
+#            - Method=POST
+#            - RemoteAddr=192.168.10.1/32
+        - id: routeId2
+          uri: lb://cloud-payment-service
+          predicates:
+#            - Path=/pay/gateway/getInfo/**
+            - Path=/pay/gateway/filter/**
+#            - Path=/abc/zzz/{segment}/**
+          filters:
+            - AddRequestHeader=X-request-atguigu1,atguiguValue1
+            - AddRequestHeader=X-request-atguigu2,atguiguValue2
+            - My=xiyang
+#            - RedirectTo=302,https://dxy88.github.io/xy_music/music.html
+#            - PrefixPath=/pay
+#            - RemoveResponseHeader=Content-Type
+#            - AddResponseHeader=X-Response-xiyang,666
+#            - SetResponseHeader=Date,2025-10-1
+#            - AddRequestParameter=consumerId,9527
+#            - RemoveRequestParameter=consumerName
+#            - SetRequestHeader=sec-fetch-site,dxy666
+#            - RemoveRequestHeader=sec-fetch-site

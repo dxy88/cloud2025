@@ -1,0 +1,40 @@
+server:
+  port: 2001
+
+spring:
+  application:
+    name: seata-order-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/seata_order?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2B8&rewriteBatchedStatements=true&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  # ========================mybatis===================
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.atguigu.cloud.entities
+  configuration:
+    map-underscore-to-camel-case: true
+seata:
+  enabled: true
+  registry:
+    nacos:
+      application: seata-server
+      group: SEATA_GROUP
+      server-addr: localhost:8848
+      namespace: ""
+    type: nacos
+  service:
+    vgroup-mapping:
+      default_tx_group: default
+  tx-service-group: default_tx_group
+
+logging:
+  level:
+    io:
+      seata: info
