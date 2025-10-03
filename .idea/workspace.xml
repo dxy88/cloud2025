@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b41e16c-96f2-4952-9edd-03470f54a38e" name="更改" comment="this is my first commit" />
+    <list default="true" id="5b41e16c-96f2-4952-9edd-03470f54a38e" name="更改" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,19 +283,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Spring Boot.AlibabaMain9001" />
-      <item itemvalue="Spring Boot.AlibabaMain9002" />
       <item itemvalue="Spring Boot.Main2001" />
       <item itemvalue="Spring Boot.Main2002" />
       <item itemvalue="Spring Boot.Main2003" />
-      <item itemvalue="Spring Boot.Main3377" />
       <item itemvalue="Spring Boot.Main8001" />
       <item itemvalue="Spring Boot.Main8002" />
       <item itemvalue="Spring Boot.Main81" />
-      <item itemvalue="Spring Boot.Main83" />
       <item itemvalue="Spring Boot.Main8401" />
-      <item itemvalue="Spring Boot.Main9528" />
       <item itemvalue="Spring Boot.MainOpenFeign80" />
+      <item itemvalue="Spring Boot.AlibabaMain9001" />
+      <item itemvalue="Spring Boot.AlibabaMain9002" />
+      <item itemvalue="Spring Boot.Main3377" />
+      <item itemvalue="Spring Boot.Main83" />
+      <item itemvalue="Spring Boot.Main9528" />
     </list>
     <recent_temporary>
       <list>
